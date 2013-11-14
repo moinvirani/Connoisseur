@@ -1,10 +1,22 @@
-<h1>Product View</h1>
+<h1><%= @product['product']['name'] %></h1>
 
-	<h2><%= image_tag @product['image_url'] %></h2> <br>
-	<%= @product['name'] %> <br>
-	Price: <%= format_price(@product['price_in_cents']) %> <br>
+	<%= image_tag @product['product']['image_thumb_url'] %> <br>
 
-	<br>
-	<%= link_to 'Back', products_path(@products) %>
+	<div>
+	Price: <%= format_price(@product['product']['price_in_cents']) %> <br>
+	From: <%= @product['product']['origin'] %> <br>
+	Inventory Count: <%= @product['product']['inventory_count'] %>
+	</div>
 
-</div>
+	<table>
+		<h3>Stores Available At:</h3>
+		<% @product['result'].each do |stores| %>
+		<tr>
+			<td><%= stores['name'] %></td>
+		</tr>
+		<% end %>
+	</table>
+
+	<div>
+		<%= link_to 'Back', products_path(@products) %>
+	</div>

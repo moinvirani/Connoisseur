@@ -7,14 +7,14 @@ class ProductsController < ApplicationController
   end
 
   def show
-  	product_json = open("http://lcboapi.com/products/#{params['id']}").read
-  	@product = JSON.parse(product_json) ['result']
+  	#product_json = open("http://lcboapi.com/products/#{params['id']}").read
+  	product_json = open("http://lcboapi.com/products/#{params['id']}/stores").read
+  	@product = JSON.parse(product_json)
+  	
+  	#@product_stores = JSON.parse(product_stores_json) ['result']
   end
-		# id = params[:id]
-	 #  	products_json = open('http://lcboapi.com/products?per_page=35').read
-	 #  	products = JSON.parse(products_json)
-	 #  	products['result'].each do |product|
-	 #  		@product = product if product['id'].to_i == id.to_i
+	
+
 	 
 
   def new
