@@ -1,9 +1,24 @@
 <h1>The Connoisseur</h1>
 
-<% @products['result'].each do |product| %>
-<section>
-	<%= link_to product['name'], product_path(product['id']) %>
-	<%= format_price product['price_in_cents'] %>
-	<%= product['primary_category'] %>
-</section>
-<% end %>
+
+<table>
+	<tr>
+	<th>Name</th>
+	<th>Price</th>
+	<th>Category</th>
+	</tr>
+
+	
+	<% @products['result'].each do |product| %>
+	<tr>
+		<td><%= link_to product['name'], product_path(product['id']) %></td>
+		<td><%= format_price product['price_in_cents'] %></td>
+		<td><%= product['primary_category'] %></td>
+	</tr>
+	<% end %>
+
+
+
+	
+</table>
+

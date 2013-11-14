@@ -1,2 +1,10 @@
-<h1>Products#show</h1>
-<p>Find me in app/views/products/show.html.erb</p>
+<h1>Product View</h1>
+
+	<h2><%= image_tag @product['image_url'] %></h2> <br>
+	<%= @product['name'] %> <br>
+	Price: <%= format_price(@product['price_in_cents']) %> <br>
+
+	<br>
+	<%= link_to 'Back', products_path(@products) %>
+
+</div>
